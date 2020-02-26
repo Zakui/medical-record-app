@@ -6,7 +6,7 @@ class Record extends Component {
     render() {
         const {firstName, lastName, gender, age, city, country} = this.props.patient
         return (
-            <div style={{borderWidth: 1+'px'}}>
+            <div className="element">
                 {`${firstName} ${lastName} (${gender}), ${age} - ${city}(${country})`}
             </div>
         );

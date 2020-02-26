@@ -5,7 +5,7 @@ class ListOfRecord extends Component {
     
     render() {
         return (
-            <div className="">
+            <div className="list">
                 {
                     this.props.patients.map(patient => (
                         <Record key={patient.id} patient={patient}/>

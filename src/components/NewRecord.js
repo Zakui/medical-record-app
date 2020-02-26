@@ -88,28 +88,28 @@ class NewRecord extends Component {
         const {firstName, lastName, age, city, country} = this.state.newRecord
 
         return (
-            <div className="App">
-                <h2>New medical record</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <div>
+            <div className="">
+                <h2 className="title">New medical record</h2>
+                <form onSubmit={this.handleSubmit} className="form">
+                    <div className="row">
+                        <div className="col-6">
                             <input type="text" placeholder="First name" name="firstName" onChange={this.handleChange} value={firstName} />
                         </div>
-                        <div>
+                        <div className="col-6">
                             <input type="text" placeholder="Last name" name="lastName" onChange={this.handleChange} value={lastName} />
                         </div>
                     </div>
-                    <div>
-                        <div onChange={this.handleChangeGender}>
+                    <div className="row">
+                        <div className="col-6" onChange={this.handleChangeGender}>
                             <input type="radio" value="Male" name="gender"/> Male
                             <input type="radio" value="Female" name="gender"/> Female
                         </div>
-                        <div>
+                        <div className="col-6">
                             <input type="number" placeholder="Age" name="age" onChange={this.handleChangeAge} value={age} />
                         </div>
                     </div>
-                    <div>
-                        <div>
+                    <div className="row">
+                        <div className="col-6">
                             <select name="city" onChange={this.handleChange} value={city}>
                                 <option value=''>Select one city</option>
                                 <option value='Conakry'>Conakry</option>
@@ -117,7 +117,7 @@ class NewRecord extends Component {
                                 <option value='Abidjan'>Abidjan</option>
                             </select>
                         </div>
-                        <div>
+                        <div className="col-6">
                             <select name="country" onChange={this.handleChange} value={country}>
                                 <option value=''>Select one country</option>
                                 <option value='Guinea'>Guinea</option>
@@ -126,7 +126,7 @@ class NewRecord extends Component {
                             </select>
                         </div>
                     </div>
-                    <div>
+                    <div className="row">
                         <div>
                             <label>Leaving with Diabetes?</label>
                             <div onChange={this.handleChangeDiabete}>
@@ -136,7 +136,7 @@ class NewRecord extends Component {
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div className="button">
                         <input type="submit" value="SAVE" />
                     </div>
                 </form>
