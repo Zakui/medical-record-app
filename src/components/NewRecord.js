@@ -18,46 +18,18 @@ class NewRecord extends Component {
             }
         }
 
-        this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
-        this.handleChangeLastName = this.handleChangeLastName.bind(this);
-        this.handleChangeGender = this.handleChangeGender.bind(this);
-        this.handleChangeAge = this.handleChangeAge.bind(this);
-        this.handleChangeCity = this.handleChangeCity.bind(this);
-        this.handleChangeCountry = this.handleChangeCountry.bind(this);
-        this.handleChangeHasDiabete = this.handleChangeHasDiabete.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChangeFirstName(event) {
+    handleChange(event) {
         this.setState({
             newRecord: {
-                [event.target.name]: event.target.value,
-                ...this.state.newRecord
-            }
-        });
-
+                    ...this.state.newRecord,
+                    [event.target.name]: event.target.value
+                }
+            })
     }
-
-    handleChangeLastName(event) {
-        this.setState({LastName: event.target.value});
-    }
-
-    handleChangeGender(event) {
-        this.setState({gender: event.target.value});
-    }
-    handleChangeAge(event) {
-        this.setState({age: event.target.value});
-    }
-    handleChangeCity(event) {
-        this.setState({city: event.target.value});
-    }
-    handleChangeCountry(event) {
-        this.setState({country: event.target.value});
-    }
-    handleChangeHasDiabete(event) {
-        this.setState({has_diabate: event.target.value});
-    }
-
 
     handleSubmit() {
         this.props.handleFormSubmit(this.state.newRecord)
@@ -73,10 +45,10 @@ class NewRecord extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <div>
-                            <input type="text" placeholder="First name" name="firstName" onChange={this.handleChangeFirstName} value={firstName} />
+                            <input type="text" placeholder="First name" name="firstName" onChange={this.handleChange} value={firstName} />
                         </div>
                         <div>
-                            <input type="text" placeholder="Last name" name="lastName" onChange={this.handleChangeLastName} value={lastName} />
+                            <input type="text" placeholder="Last name" name="lastName" onChange={this.handleChange} value={lastName} />
                         </div>
                     </div>
                     <div>
@@ -84,12 +56,12 @@ class NewRecord extends Component {
                             <input type="text" placeholder="First name" />
                         </div>
                         <div>
-                            <input type="number" placeholder="Age" name="age" onChange={this.handleChangeAge} value={age} />
+                            <input type="number" placeholder="Age" name="age" onChange={this.handleChange} value={age} />
                         </div>
                     </div>
                     <div>
                         <div>
-                            <select name="city" onChange={this.handleChangeCity} value={city}>
+                            <select name="city" onChange={handleChange} value={city}>
                                 <option value=''>Select one city</option>
                                 <option value='Conakry'>Conakry</option>
                                 <option value='Bamako'>Bamako</option>
@@ -97,7 +69,7 @@ class NewRecord extends Component {
                             </select>
                         </div>
                         <div>
-                            <select name="country" onChange={this.handleChangeCountry} value={country}>
+                            <select name="country" onChange={handleChange} value={country}>
                                 <option value=''>Select one country</option>
                                 <option value='Guinea'>Guinea</option>
                                 <option value='Mali'>Mali</option>
