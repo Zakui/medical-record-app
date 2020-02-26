@@ -9,11 +9,11 @@ class NewRecord extends Component {
             newRecord: {
                 firstName: '',
                 lastName: '',
-                gender: '',
+                gender: 'Male',
                 age: 0,
                 city: '',
                 country: '',
-                has_diabate: '',
+                has_diabate: 'Unknown',
     
             }
         }
@@ -39,7 +39,7 @@ class NewRecord extends Component {
             this.setState({
                 newRecord: {
                         ...this.state.newRecord,
-                        age: event.target.value
+                        age: parseInt(event.target.value)
                     }
                 })
         }
@@ -73,11 +73,11 @@ class NewRecord extends Component {
             newRecord: {
                 firstName: '',
                 lastName: '',
-                gender: '',
+                gender: 'Male',
                 age: 0,
                 city: '',
                 country: '',
-                has_diabate: '',
+                has_diabate: 'Unknown',
     
             }
         })

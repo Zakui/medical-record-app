@@ -20,6 +20,15 @@
   max-width: 500px;
 }
 
+.list-record {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-title {
+  margin: 0;
+}
+
 .col-6 {
   padding: 5px;
   max-width: 54%;
