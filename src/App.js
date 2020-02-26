@@ -16,7 +16,10 @@ class App extends Component {
   }
 
   handleFormSubmit(data) {
-    this.setState({patients: [...this.state.patients, data]})
+    this.setState({patients: [...this.state.patients, {
+      id: new Date().toJSON(),
+      ...data
+    }]})
   }
 
   render () {
