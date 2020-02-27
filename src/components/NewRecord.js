@@ -21,8 +21,6 @@ class NewRecord extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChangeAge = this.handleChangeAge.bind(this);
-        this.handleChangeGender = this.handleChangeGender.bind(this);
-        this.handleChangeDiabete = this.handleChangeDiabete.bind(this);
     }
 
     handleChange(event) {
@@ -45,26 +43,6 @@ class NewRecord extends Component {
         }
 
     }
-
-    handleChangeGender(event) {
-        this.setState({
-            newRecord: {
-                    ...this.state.newRecord,
-                    gender: event.target.value
-                }
-            })
-    }
-
-    handleChangeDiabete(event) {
-        this.setState({
-            newRecord: {
-                    ...this.state.newRecord,
-                    has_diabate: event.target.value
-                }
-            })
-    }
-
-
 
     handleSubmit(event) {
         event.preventDefault()
@@ -100,7 +78,7 @@ class NewRecord extends Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-6" onChange={this.handleChangeGender}>
+                        <div className="col-6" onChange={this.handleChange}>
                             <input type="radio" value="Male" name="gender"/> Male
                             <input type="radio" value="Female" name="gender"/> Female
                         </div>
@@ -129,7 +107,7 @@ class NewRecord extends Component {
                     <div className="row">
                         <div>
                             <label>Leaving with Diabetes?</label>
-                            <div onChange={this.handleChangeDiabete}>
+                            <div onChange={this.handleChange}>
                                 <input type="radio" value="Yes" name="has_diabate"/> Yes
                                 <input type="radio" value="No" name="has_diabate"/> No
                                 <input type="radio" value="Unknown" name="has_diabate"/> Unknown

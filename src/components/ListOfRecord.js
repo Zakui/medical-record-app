@@ -9,7 +9,6 @@ class ListOfRecord extends Component {
     }
 
     minorChange(event) {
-        console.log(event.target.checked)
         this.props.minorUpdate(event.target.checked)
     }
 
