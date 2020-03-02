@@ -9,43 +9,34 @@ class App extends Component {
 
     this.state = {
         patients: [],
-        displayList: [],
         is_minor: false
         
     }
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.addToDisplayList = this.addToDisplayList.bind(this);
     this.minorUpdate = this.minorUpdate.bind(this);
   }
 
   minorUpdate(val) {
-    this.setState({is_minor: val}, ()=> {
-      this.addToDisplayList()
-    })
-  }
-
-  addToDisplayList() {
-    if(this.state.is_minor) 
-      this.setState({displayList: [...this.state.patients.filter(p=>p.age<18)]})
-    else
-      this.setState({displayList: [...this.state.patients]})
+    this.setState({is_minor: val})
   }
 
   handleFormSubmit(data) {
     this.setState({patients: [...this.state.patients, {
       id: new Date().toJSON(),
       ...data
-    }]}, ()=> {
-      this.addToDisplayList()
-    })
+    }]})
   }
 
   render () {
+    const listToDisplay = this.state.is_minor?
+        [...this.state.patients.filter(p=>p.age<18)] : 
+        [...this.state.patients]
+
     return (
       <div className="">
         <NewRecord handleFormSubmit={this.handleFormSubmit}/>
-        <ListOfRecord patients={this.state.displayList} minorUpdate={this.minorUpdate}/>
+        <ListOfRecord patients={listToDisplay} minorUpdate={this.minorUpdate}/>
       </div>
     )
   }
